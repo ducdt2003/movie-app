@@ -2,11 +2,13 @@ package com.example.movieapp.controller.web;
 
 import com.example.movieapp.entity.Episode;
 import com.example.movieapp.entity.Movie;
+import com.example.movieapp.entity.Review;
 import com.example.movieapp.entity.User;
 import com.example.movieapp.model.enums.MovieType;
 import com.example.movieapp.service.EpisodeService;
 import com.example.movieapp.service.FavoriteService;
 import com.example.movieapp.service.MovieService;
+import com.example.movieapp.service.ReviewService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -24,6 +26,7 @@ public class WebController {
     private final MovieService movieService;
     private final EpisodeService episodeService;
     private final FavoriteService favoriteService;
+    private final ReviewService reviewService;
     private final HttpSession session;
 
     @GetMapping("/")

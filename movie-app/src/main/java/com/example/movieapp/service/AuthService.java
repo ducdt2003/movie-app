@@ -2,7 +2,6 @@ package com.example.movieapp.service;
 
 import com.example.movieapp.entity.User;
 import com.example.movieapp.exception.BadRequestException;
-
 import com.example.movieapp.model.request.LoginRequest;
 import com.example.movieapp.repository.UserRepository;
 import jakarta.servlet.http.HttpSession;
@@ -17,7 +16,7 @@ public class AuthService {
     private final BCryptPasswordEncoder passwordEncoder;
     private final HttpSession session;
 
-    public void login(LoginRequest request) {
+    public User login(LoginRequest request) {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new BadRequestException("Tài khoản hoặc mật khẩu không chính xác"));
 
@@ -25,11 +24,20 @@ public class AuthService {
             throw new BadRequestException("Tài khoản hoặc mật khẩu không chính xác");
         }
 
-        // Luu lai: session, cookie, database, redis, ...
+        // Lưu thông tin user vào session
         session.setAttribute("currentUser", user);
+        return user;
     }
 
     public void logout() {
         session.removeAttribute("currentUser");
+    }
+
+    public User getCurrentUser() {
+        User currentUser = (User) session.getAttribute("currentUser");
+        if (currentUser == null) {
+            throw new BadRequestException("User chưa đăng nhập");
+        }
+        return currentUser;
     }
 }

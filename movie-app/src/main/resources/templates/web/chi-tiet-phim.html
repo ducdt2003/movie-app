@@ -196,6 +196,7 @@
         </div>
     </div>
 </section>
+
 <section class="py-4">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-2">
@@ -206,118 +207,28 @@
         </div>
 
         <div class="review-list">
-            <div class="review-item">
+            <div class="review-item" th:each="review : ${reviews}">
                 <div class="review-author d-flex justify-content-between">
                     <div class="d-flex">
                         <div class="review-author-avatar">
-                            <img src="https://homepage.momocdn.net/cinema/momo-cdn-api-220615142913-637909001532744942.jpg"
-                                 alt="">
+                            <!-- Sử dụng avatar của người dùng -->
+                            <img th:src="@{${review.user.avatar}}" alt="Avatar">
                         </div>
                         <div class="ms-3">
-                            <p class="fw-semibold">Nguyễn Văn A</p>
-                            <p>⭐️ 10/10 Xuất sắc</p>
+                            <!-- Tên người bình luận -->
+                            <p class="fw-semibold" th:text="${review.user.name}">Nguyễn Văn A</p>
+                            <!-- Đánh giá người dùng -->
+                            <p>⭐️ <span th:text="${review.rating}">10</span>/10 <span th:text="${review.comment}">Xuất sắc</span></p>
                         </div>
                     </div>
                     <div>
-                        <p>09/04/2022</p>
+                        <!-- Ngày bình luận -->
+                        <p th:text="${review.date}">09/04/2022</p>
                     </div>
                 </div>
                 <div class="review-content mt-3">
-                    <p>Phim dở, không có gì đặc sắc ngoài bắn nhau chí choé, mục đích thì phi lý, john wick quay lại
-                        giết người vì mất chó, tay này thì mất con, motif dễ đoán, quá quen thuộc, nhìn chung không ấn
-                        tượng</p>
-                </div>
-            </div>
-
-            <div class="review-item">
-                <div class="review-author d-flex justify-content-between">
-                    <div class="d-flex">
-                        <div class="review-author-avatar">
-                            <img src="https://homepage.momocdn.net/cinema/momo-cdn-api-220615142913-637909001532744942.jpg"
-                                 alt="">
-                        </div>
-                        <div class="ms-3">
-                            <p class="fw-semibold">Nguyễn Văn A</p>
-                            <p>⭐️ 10/10 Xuất sắc</p>
-                        </div>
-                    </div>
-                    <div>
-                        <p>09/04/2022</p>
-                    </div>
-                </div>
-                <div class="review-content mt-3">
-                    <p>Phim dở, không có gì đặc sắc ngoài bắn nhau chí choé, mục đích thì phi lý, john wick quay lại
-                        giết người vì mất chó, tay này thì mất con, motif dễ đoán, quá quen thuộc, nhìn chung không ấn
-                        tượng</p>
-                </div>
-            </div>
-
-            <div class="review-item">
-                <div class="review-author d-flex justify-content-between">
-                    <div class="d-flex">
-                        <div class="review-author-avatar">
-                            <img src="https://homepage.momocdn.net/cinema/momo-cdn-api-220615142913-637909001532744942.jpg"
-                                 alt="">
-                        </div>
-                        <div class="ms-3">
-                            <p class="fw-semibold">Nguyễn Văn A</p>
-                            <p>⭐️ 10/10 Xuất sắc</p>
-                        </div>
-                    </div>
-                    <div>
-                        <p>09/04/2022</p>
-                    </div>
-                </div>
-                <div class="review-content mt-3">
-                    <p>Phim dở, không có gì đặc sắc ngoài bắn nhau chí choé, mục đích thì phi lý, john wick quay lại
-                        giết người vì mất chó, tay này thì mất con, motif dễ đoán, quá quen thuộc, nhìn chung không ấn
-                        tượng</p>
-                </div>
-            </div>
-
-            <div class="review-item">
-                <div class="review-author d-flex justify-content-between">
-                    <div class="d-flex">
-                        <div class="review-author-avatar">
-                            <img src="https://homepage.momocdn.net/cinema/momo-cdn-api-220615142913-637909001532744942.jpg"
-                                 alt="">
-                        </div>
-                        <div class="ms-3">
-                            <p class="fw-semibold">Nguyễn Văn A</p>
-                            <p>⭐️ 10/10 Xuất sắc</p>
-                        </div>
-                    </div>
-                    <div>
-                        <p>09/04/2022</p>
-                    </div>
-                </div>
-                <div class="review-content mt-3">
-                    <p>Phim dở, không có gì đặc sắc ngoài bắn nhau chí choé, mục đích thì phi lý, john wick quay lại
-                        giết người vì mất chó, tay này thì mất con, motif dễ đoán, quá quen thuộc, nhìn chung không ấn
-                        tượng</p>
-                </div>
-            </div>
-
-            <div class="review-item">
-                <div class="review-author d-flex justify-content-between">
-                    <div class="d-flex">
-                        <div class="review-author-avatar">
-                            <img src="https://homepage.momocdn.net/cinema/momo-cdn-api-220615142913-637909001532744942.jpg"
-                                 alt="">
-                        </div>
-                        <div class="ms-3">
-                            <p class="fw-semibold">Nguyễn Văn A</p>
-                            <p>⭐️ 10/10 Xuất sắc</p>
-                        </div>
-                    </div>
-                    <div>
-                        <p>09/04/2022</p>
-                    </div>
-                </div>
-                <div class="review-content mt-3">
-                    <p>Phim dở, không có gì đặc sắc ngoài bắn nhau chí choé, mục đích thì phi lý, john wick quay lại
-                        giết người vì mất chó, tay này thì mất con, motif dễ đoán, quá quen thuộc, nhìn chung không ấn
-                        tượng</p>
+                    <!-- Nội dung bình luận -->
+                    <p th:text="${review.content}">Phim dở, không có gì đặc sắc ngoài bắn nhau chí choé, mục đích thì phi lý...</p>
                 </div>
             </div>
         </div>
@@ -337,6 +248,9 @@
         </nav>
     </div>
 </section>
+
+
+
 
 <div class="modal fade" id="modal-review" tabindex="-1" aria-labelledby="modalReviewLabel" aria-hidden="true">
     <div class="modal-dialog">

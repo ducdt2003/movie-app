@@ -9,7 +9,7 @@ import com.example.movieapp.model.request.CreateReviewRequest;
 import com.example.movieapp.model.request.UpdateReviewRequest;
 import com.example.movieapp.repository.MovieRepository;
 import com.example.movieapp.repository.ReviewRepository;
-import com.example.movieapp.repository.UserRepository;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,20 +24,24 @@ import java.time.LocalDateTime;
 public class ReviewService {
     private final ReviewRepository reviewRepository;
     private final MovieRepository movieRepository;
-    private final UserRepository userRepository;
+
+    private User getCurrentUser(HttpSession session) {
+        User currentUser = (User) session.getAttribute("currentUser");
+        if (currentUser == null) {
+            throw new NotFoundException("User chưa đăng nhập");
+        }
+        return currentUser;
+    }
 
     public Page<Review> getReviewsByMovie(Integer movieId, Integer page, Integer pageSize) {
         Pageable pageable = PageRequest.of(page - 1, pageSize, Sort.by("createdAt").descending());
         return reviewRepository.findByMovie_Id(movieId, pageable);
     }
 
-    public Review createReview(CreateReviewRequest request) {
-        // TODO: Fix login user
-        Integer userId = 1;
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new NotFoundException("Không tìm thấy user có id = " + userId));
+    public Review createReview(CreateReviewRequest request, HttpSession session) {
+        User currentUser = getCurrentUser(session);
 
-        Movie movie = movieRepository.findByIdAndStatusTrue(request.getMovieId())
+        Movie movie = movieRepository.findById(request.getMovieId())
                 .orElseThrow(() -> new NotFoundException("Không tìm thấy phim có id = " + request.getMovieId()));
 
         Review review = Review.builder()
@@ -46,43 +50,37 @@ public class ReviewService {
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())
                 .movie(movie)
-                .user(user)
+                .user(currentUser)
                 .build();
         return reviewRepository.save(review);
     }
 
-    public Review updateReview(Integer id, UpdateReviewRequest request) {
-        // TODO: Fix login user
-        Integer userId = 1;
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new NotFoundException("Không tìm thấy user có id = " + userId));
+    public Review updateReview(Integer id, UpdateReviewRequest request, HttpSession session) {
+        User currentUser = getCurrentUser(session);
 
         Review review = reviewRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Không tìm thấy review có id = " + id));
 
-        // Check user is owner of review
-        if (!review.getUser().getId().equals(user.getId())) {
+        if (!review.getUser().getId().equals(currentUser.getId())) {
             throw new BadRequestException("Không có quyền cập nhật review");
         }
 
         review.setContent(request.getContent());
         review.setRating(request.getRating());
+        review.setUpdatedAt(LocalDateTime.now());
         return reviewRepository.save(review);
     }
 
-    public void deleteReview(Integer id) {
-        // TODO: Fix login user
-        Integer userId = 1;
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new NotFoundException("Không tìm thấy user có id = " + userId));
+    public void deleteReview(Integer id, HttpSession session) {
+        User currentUser = getCurrentUser(session);
 
         Review review = reviewRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Không tìm thấy review có id = " + id));
 
-        // Check user is owner of review
-        if (!review.getUser().getId().equals(user.getId())) {
+        if (!review.getUser().getId().equals(currentUser.getId())) {
             throw new BadRequestException("Không có quyền xóa review");
         }
+
         reviewRepository.delete(review);
     }
 }

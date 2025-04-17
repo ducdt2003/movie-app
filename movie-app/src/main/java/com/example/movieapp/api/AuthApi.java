@@ -1,15 +1,12 @@
 package com.example.movieapp.api;
 
-import com.example.movieapp.entity.Favorite;
-import com.example.movieapp.model.request
-.LoginRequest;
+import com.example.movieapp.entity.User;
+import com.example.movieapp.model.request.LoginRequest;
 import com.example.movieapp.service.AuthService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -20,13 +17,19 @@ public class AuthApi {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
-        authService.login(request);
-        return ResponseEntity.ok().build();
+        User user = authService.login(request);
+        return ResponseEntity.ok(user);
     }
 
     @PostMapping("/logout")
     public ResponseEntity<?> logout() {
         authService.logout();
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/current-user")
+    public ResponseEntity<?> getCurrentUser(HttpSession session) {
+        User currentUser = authService.getCurrentUser();
+        return ResponseEntity.ok(currentUser);
     }
 }
