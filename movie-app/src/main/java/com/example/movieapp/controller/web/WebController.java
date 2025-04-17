@@ -147,6 +147,8 @@ public class WebController {
         return "web/favorites";
     }
 
+
+
     @GetMapping("/dang-nhap")
     public String showLoginPage() {
 //        UserDTO currentUser = (UserDTO) session.getAttribute("currentUser");

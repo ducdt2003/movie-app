@@ -46,4 +46,11 @@ public class MovieService {
     }
 
 
+    // lấy danh sách phim
+    public Page<Movie> findAllMovies(Integer page, Integer pageSize) {
+        Pageable pageable = PageRequest.of(page - 1, pageSize, Sort.by("publishedAt").descending());
+        return movieRepository.findAll(pageable);
+    }
+
+
 }
