@@ -2,10 +2,12 @@ package com.example.movieapp.controller.web;
 
 import com.example.movieapp.entity.Episode;
 import com.example.movieapp.entity.Movie;
+import com.example.movieapp.entity.User;
 import com.example.movieapp.model.enums.MovieType;
 import com.example.movieapp.service.EpisodeService;
 import com.example.movieapp.service.FavoriteService;
 import com.example.movieapp.service.MovieService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,7 @@ public class WebController {
     private final MovieService movieService;
     private final EpisodeService episodeService;
     private final FavoriteService favoriteService;
+    private final HttpSession session;
 
     @GetMapping("/")
     public String getHomePage(Model model) {
@@ -143,6 +146,11 @@ public class WebController {
 
     @GetMapping("/dang-nhap")
     public String showLoginPage() {
+//        UserDTO currentUser = (UserDTO) session.getAttribute("currentUser");
+        User currentUser = (User) session.getAttribute("currentUser");
+        if (currentUser == null) {
             return "web/login";
+        }
+        return "redirect:/";
     }
 }

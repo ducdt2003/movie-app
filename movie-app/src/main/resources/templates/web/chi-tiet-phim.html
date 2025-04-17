@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<header>
+<!--<header>
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container">
             <a class="navbar-brand" href="/static">
@@ -59,7 +59,8 @@
             </div>
         </div>
     </nav>
-</header>
+</header>-->
+<th:block th:replace="~{web/fragments/header::header}"></th:block>
 
 <section class="py-4">
     <div class="container">
@@ -377,6 +378,8 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script th:inline="javascript">
     let movie = [[${movie}]];
+    let currentUser = [[${session.currentUser}]];
+    console.log(currentUser);
 </script>
 <script th:src="@{/js/movie-detail.js}"></script>
 </body>

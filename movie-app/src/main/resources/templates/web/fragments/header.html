@@ -44,9 +44,20 @@
                     <a class="nav-link text-white" href="#">Mua phim</a>
                 </div>
                 <div>
-                    <a class="nav-link text-white" href="#"
-                    >Đăng nhập</a
-                    >
+                    <a th:if="${session.currentUser == null}" class="nav-link text-white" href="/dang-nhap">Đăng nhập</a>                    <div class="dropdown" th:if="${session.currentUser != null}">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                th:text="${session.currentUser.displayName}">
+                            Dropdown button
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li th:if="${session.currentUser.role.toString().equals('ADMIN')}">
+                                <a class="dropdown-item" href="#">Trang quan tri</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Ho so ca nhan</a></li>
+                            <li><a class="dropdown-item" href="phim-yeu-thich">Phim yeu thich</a></li>
+                            <li><a class="dropdown-item" href="#">Dang xuat</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
