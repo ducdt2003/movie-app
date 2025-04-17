@@ -1,0 +1,266 @@
+<!--
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Phim bộ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/static">
+                <img
+                        src="https://movie.techmaster.vn/assets/logo-C2IIl7EL.png"
+                        alt="logo"
+                />
+            </a>
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+                    class="collapse navbar-collapse justify-content-between"
+                    id="navbarNavAltMarkup"
+            >
+                <div class="navbar-nav">
+                    <a class="nav-link text-white" href="/static"
+                    >Trang chủ</a
+                    >
+                    <a class="nav-link text-white" href="/phim-bo">Phim bộ</a>
+                    <a class="nav-link text-white" href="/phim-chieu-rap"
+                    >Phim chiếu rạp</a
+                    >
+                    <a class="nav-link text-white" href="/phim-le">Phim lẻ</a>
+                    <a class="nav-link text-white" href="#">Quốc gia</a>
+                    <a class="nav-link text-white" href="#">Thể loại</a>
+                    <a class="nav-link text-white" href="#">Mua phim</a>
+                </div>
+                <div>
+                    <a class="nav-link text-white" href="#"
+                    >Đăng nhập</a
+                    >
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+&lt;!&ndash;<section class="py-4 bg-body-tertiary">
+    <div class="container">
+        <h4>Phim Yêu Thích</h4>
+        <div class="row">
+            <div class="col-3" th:each="movie : ${moviePage.content}"> &lt;!&ndash; Hiển thị 4 phim mỗi hàng &ndash;&gt;
+                <a class="text-decoration-none text-dark"
+                   th:href="'/phim/' + ${movie.id} + '/' + ${movie.slug}">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img th:src="${movie.thumbnail}" th:alt="${movie.name}">
+                        </div>
+                        <div class="movie-info">
+                            <p class="mt-3 mb-0" th:text="${movie.name}"></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <nav class="mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item" th:if="${currentPage > 1}">
+                    <a class="page-link" th:href="@{/phim-yeu-thich(userId=${userId}, page=${currentPage - 1})}">Trước</a>
+                </li>
+
+                <li class="page-item" th:each="pageNum : ${#numbers.sequence(1, totalPages)}"
+                    th:classappend="${pageNum == currentPage} ? 'active'">
+                    <a class="page-link" th:href="@{/phim-yeu-thich(userId=${userId}, page=${pageNum})}" th:text="${pageNum}"></a>
+                </li>
+
+                <li class="page-item" th:if="${currentPage < totalPages}">
+                    <a class="page-link" th:href="@{/phim-yeu-thich(userId=${userId}, page=${currentPage + 1})}">Sau</a>
+                </li>
+            </ul>
+        </nav>
+
+
+    </div>
+</section>&ndash;&gt;
+
+<section class="py-4 bg-body-tertiary">
+    <div class="container">
+        <h4>Phim Yêu Thích</h4>
+        <div class="row">
+            <div class="col-3" th:each="movie : ${moviePage.content}">
+                <a class="text-decoration-none text-dark"
+                   th:href="@{'/phim/' + ${movie.id} + '/' + ${movie.slug}}">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img th:src="${movie.thumbnail}" th:alt="${movie.name}">
+                        </div>
+                        <div class="movie-info">
+                            <p class="mt-3 mb-0" th:text="${movie.name}"></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" th:if="${currentPage > 1}">
+                <a class="page-link" th:href="@{/phim-yeu-thich(userId=${userId}, page=${currentPage - 1})}">Trước</a>
+            </li>
+
+            <li class="page-item" th:each="pageNum : ${#numbers.sequence(1, totalPages)}"
+                th:classappend="${pageNum == currentPage} ? 'active'">
+                <a class="page-link" th:href="@{/phim-yeu-thich(userId=${userId}, page=${pageNum})}" th:text="${pageNum}"></a>
+            </li>
+
+            <li class="page-item" th:if="${currentPage < totalPages}">
+                <a class="page-link" th:href="@{/phim-yeu-thich(userId=${userId}, page=${currentPage + 1})}">Sau</a>
+            </li>
+        </ul>
+    </nav>
+</section>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+<script th:inline="javascript">
+    let moviePage = [[${moviePage}]];
+    console.log(moviePage)
+
+    let currentPage = [[${currentPage}]];
+    console.log(currentPage)
+</script>
+</body>
+
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Danh sách phim yêu thích</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="https://movie.techmaster.vn/assets/logo-C2IIl7EL.png" alt="logo"/>
+            </a>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link text-white" href="/">Trang chủ</a>
+                    <a class="nav-link text-white" href="/phim-bo">Phim bộ</a>
+                    <a class="nav-link text-white" href="/phim-chieu-rap">Phim chiếu rạp</a>
+                    <a class="nav-link text-white" href="/phim-le">Phim lẻ</a>
+                </div>
+                <div>
+                    <a class="nav-link text-white" href="#">Đăng nhập</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="py-4 bg-body-tertiary">
+    <!--<div class="container">
+        <h4>Danh sách phim yêu thích</h4>
+        <div class="row">
+            <div class="col-3" th:each="movie : ${moviePage.content}">
+                <div class="movie-item">
+                    <a class="text-decoration-none text-dark" th:href="@{'/phim/' + ${movie.id} + '/' + ${movie.slug}}">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img th:src="${movie.thumbnail}" th:alt="${movie.name}">
+                        </div>
+                        <div class="movie-info">
+                            <p class="mt-3 mb-0" th:text="${movie.name}"></p>
+                        </div>
+                    </a>
+
+                    &lt;!&ndash; Nút xóa phim yêu thích &ndash;&gt;
+                    <form th:action="@{/api/favorites/remove}" method="post" class="mt-2">
+                        <input type="hidden" name="userId" th:value="${userId}"/>
+                        <input type="hidden" name="movieId" th:value="${movie.id}"/>
+                        <button type="submit" class="btn btn-danger">Xóa khỏi yêu thích ❌</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="container">
+        <h4>Phim Yêu Thích</h4>
+        <div class="row">
+            <div class="col-3" th:each="movie : ${moviePage.content}">
+                <div class="movie-item">
+                    <a class="text-decoration-none text-dark" th:href="@{'/phim/' + ${movie.id} + '/' + ${movie.slug}}">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img th:src="${movie.thumbnail}" th:alt="${movie.name}">
+                        </div>
+                        <div class="movie-info">
+                            <p class="mt-3 mb-0" th:text="${movie.name}"></p>
+                        </div>
+                    </a>
+
+                    <!-- Nút xóa phim yêu thích -->
+                    <button class="btn btn-danger mt-2 btn-remove-favorite"
+                            th:data-userId="${userId}" th:data-movieId="${movie.id}">
+                        Xóa khỏi yêu thích ❌
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Phân trang -->
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" th:if="${currentPage > 1}">
+                <a class="page-link" th:href="@{/phim-yeu-thich(userId=${userId}, page=${currentPage - 1})}">Trước</a>
+            </li>
+
+            <li class="page-item" th:each="pageNum : ${#numbers.sequence(1, totalPages)}"
+                th:classappend="${pageNum == currentPage} ? 'active'">
+                <a class="page-link" th:href="@{/phim-yeu-thich(userId=${userId}, page=${pageNum})}" th:text="${pageNum}"></a>
+            </li>
+
+            <li class="page-item" th:if="${currentPage < totalPages}">
+                <a class="page-link" th:href="@{/phim-yeu-thich(userId=${userId}, page=${currentPage + 1})}">Sau</a>
+            </li>
+        </ul>
+    </nav>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+<script th:src="@{/js/favorite.js}"></script>
+</body>
+</html>

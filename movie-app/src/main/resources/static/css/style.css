@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+.navbar-brand img {
+    width: 150px;
+}
+
+.movie-poster {
+    height: 250px;
+}
+
+.movie-poster img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.review-author-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.rating {
+    font-size: 24px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.star {
+    display: inline-block;
+}
+
+.star:hover,
+.star.active {
+    color: #EDBB0E;
+}
