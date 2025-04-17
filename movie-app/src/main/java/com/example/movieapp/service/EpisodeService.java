@@ -12,6 +12,8 @@ import java.util.List;
 public class EpisodeService {
     private final EpisodeRepository episodeRepository;
 
+    // câu 1 tập phim
+
     public List<Episode> findEpisodesByMovieId(Integer id) {
         return episodeRepository.findByMovie_IdAndStatusOrderByDisplayOrderAsc(id, true);
     }
