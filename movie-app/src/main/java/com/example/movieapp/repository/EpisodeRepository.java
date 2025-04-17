@@ -1,6 +1,8 @@
 package com.example.movieapp.repository;
 
 import com.example.movieapp.entity.Episode;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -16,5 +18,6 @@ public interface EpisodeRepository extends JpaRepository<Episode, Integer> {
     @Modifying
     @Query("DELETE FROM Episode e WHERE e.movie.id = :movieId")
     void deleteByMovieId(@Param("movieId") Integer movieId);
+
 
 }
