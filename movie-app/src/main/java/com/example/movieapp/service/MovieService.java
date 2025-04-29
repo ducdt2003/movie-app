@@ -41,6 +41,11 @@ public class MovieService {
     public Movie findMovieDetails(Integer id, String slug) {
         return movieRepository.findByIdAndSlugAndStatus(id, slug, true);
     }
+    public Movie findMovieById(Integer id) {
+        return movieRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Không tìm thấy phim với ID: " + id));
+    }
+
 
     // phim liên quan
     public List<Movie> findRelatedMovies(Integer movieId) {

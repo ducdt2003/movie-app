@@ -59,6 +59,7 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
 
     Movie findByIdAndSlugAndStatus(Integer id, String slug, boolean b);
 
+
     Optional<Movie> findByIdAndStatusTrue(Integer movieId);
 
     // 🔹 Lấy danh sách phim có ít nhất một thể loại thuộc danh sách genres được truyền vào
