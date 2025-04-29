@@ -108,6 +108,7 @@ public class MovieService {
 
     // Cập nhật phim - câu 3
     public Movie updateMovie(Integer id, MovieRequest movieRequest) {
+        System.out.println("MovieRequest: " + movieRequest);
         Movie movie = movieRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Không tìm thấy phim với ID: " + id));
 
@@ -121,9 +122,11 @@ public class MovieService {
         movie.setGenres(fetchGenresByIds(movieRequest.getGenreIds()));
         movie.setActors(fetchActorsByIds(movieRequest.getActorIds()));
         movie.setDirectors(fetchDirectorsByIds(movieRequest.getDirectorIds()));
-        movie.setUpdatedAt(LocalDateTime.now()); // 🔹 Cập nhật thời gian sửa đổi
+        movie.setUpdatedAt(LocalDateTime.now());
 
-        return movieRepository.save(movie);
+        Movie savedMovie = movieRepository.save(movie);
+        System.out.println("Saved movie: " + savedMovie.getName());
+        return savedMovie;
     }
 
 
