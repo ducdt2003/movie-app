@@ -3,10 +3,12 @@ package com.example.movieapp.api;
 import com.example.movieapp.entity.Episode;
 import com.example.movieapp.model.request.EpisodeRequest;
 import com.example.movieapp.service.EpisodeService;
+import com.example.movieapp.service.MovieService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -14,6 +16,7 @@ import java.util.List;
 @RequestMapping("/api/admin/episodes")
 public class AdminEpisodeApi {
 
+    private MovieService movieService;
     @Autowired
     private EpisodeService episodeService;
 
@@ -58,6 +61,10 @@ public class AdminEpisodeApi {
         return ResponseEntity.ok("Xóa tập phim thành công với ID: " + id);
     }
 
+    @PostMapping("/{id}/upload-video")
+    ResponseEntity<?> uploadVideo(@RequestParam MultipartFile file, @PathVariable Integer id) {
+        return ResponseEntity.ok(episodeService.uploadVideo(id, file));
+    }
 
 
 }

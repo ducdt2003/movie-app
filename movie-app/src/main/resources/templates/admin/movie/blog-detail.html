@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -5,25 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>AdminLTE 3 | Chi tiết phim</title>
 
-    <!-- Google Font: Source Sans Pro -->
+    &lt;!&ndash; Google Font: Source Sans Pro &ndash;&gt;
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
-    <!-- Font Awesome -->
+    &lt;!&ndash; Font Awesome &ndash;&gt;
     <link rel="stylesheet" href="/admin-assets/plugins/fontawesome-free/css/all.min.css" />
-    <!-- Ionicons -->
+    &lt;!&ndash; Ionicons &ndash;&gt;
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
-    <!-- Theme style -->
+    &lt;!&ndash; Theme style &ndash;&gt;
     <link rel="stylesheet" href="/admin-assets/dist/css/adminlte.min.css" />
-    <!-- overlayScrollbars -->
+    &lt;!&ndash; overlayScrollbars &ndash;&gt;
     <link rel="stylesheet" href="/admin-assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
-    <!-- Select2 -->
+    &lt;!&ndash; Select2 &ndash;&gt;
     <link rel="stylesheet" href="/admin-assets/plugins/select2/css/select2.min.css" />
-    <!-- Custom style -->
+    &lt;!&ndash; Custom style &ndash;&gt;
     <link rel="stylesheet" href="/admin-assets/dist/css/style.css" />
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-    <!-- Navbar -->
+    &lt;!&ndash; Navbar &ndash;&gt;
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -54,7 +55,7 @@
         </ul>
     </nav>
 
-    <!-- Sidebar -->
+    &lt;!&ndash; Sidebar &ndash;&gt;
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <a href="/admin" class="brand-link">
             <img src="/admin-assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" />
@@ -92,10 +93,10 @@
         </div>
     </aside>
 
-    <!-- Content Wrapper -->
+    &lt;!&ndash; Content Wrapper &ndash;&gt;
     <div class="content-wrapper">
 
-        <!-- Breadcrumb -->
+        &lt;!&ndash; Breadcrumb &ndash;&gt;
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -110,11 +111,11 @@
             </div>
         </div>
 
-        <!-- Main content -->
+        &lt;!&ndash; Main content &ndash;&gt;
         <section class="content">
             <div class="container-fluid">
 
-                <!-- Buttons -->
+                &lt;!&ndash; Buttons &ndash;&gt;
                 <div class="row py-2">
                     <div class="col-6">
                         <a href="/admin/movies" class="btn btn-default">
@@ -132,13 +133,13 @@
                     </div>
                 </div>
 
-                <!-- Movie details -->
-                <div class="row">
+                &lt;!&ndash; Movie details &ndash;&gt;
+                &lt;!&ndash;<div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <!-- Left Column -->
+                                    &lt;!&ndash; Left Column &ndash;&gt;
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label>Tên phim</label>
@@ -156,7 +157,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Right Column -->
+                                    &lt;!&ndash; Right Column &ndash;&gt;
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Trạng thái</label>
@@ -202,19 +203,127 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> <!-- /.row -->
-                            </div> <!-- /.card-body -->
-                        </div> <!-- /.card -->
-                    </div> <!-- /.col-12 -->
-                </div> <!-- /.row -->
+                                </div> &lt;!&ndash; /.row &ndash;&gt;
+                            </div> &lt;!&ndash; /.card-body &ndash;&gt;
+                        </div> &lt;!&ndash; /.card &ndash;&gt;
+                    </div> &lt;!&ndash; /.col-12 &ndash;&gt;
+                </div>&ndash;&gt;
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-content-center mb-3">
+                                    <h4>Danh sách tập phim</h4>
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalEpisode">Tạo tập phim</button>
+                                </div>
+                                <table class="table table-bordered table-hover" id="table-episode">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Tên tập phim</th>
+                                        <th style="width: 50%">Link</th>
+                                        <th>Thời lượng</th>
+                                        <th>Trạng thái</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Tap 1</td>
+                                        <td class="videoUrl" style="word-break: break-all">
+                                            http://res.cloudinary.com/dchrybytt/image/upload/v1745930233/file_java_27_28/cwim3qrad2mokindunbn.png
+                                        </td>
+                                        <td class="duration">90</td>
+                                        <td>Cong khai</td>
+                                        <td>
+                                            <label class="btn btn-warning btn-sm mb-0"
+                                                   for="input-video-1">
+                                                <i class="fas fa-upload"></i>
+                                            </label>
+                                            <input
+                                                    type="file"
+                                                    id="input-video-1"
+                                                    class="d-none"
+                                            >
+                                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalPreview">
+                                                <i class="fas fa-play"></i>
+                                            </button>
+                                            <button class="btn btn-success btn-sm">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </button>
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="modal fade" id="modalPreview">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Video Preview</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <video width="100%" controls>
+                                    <source src="" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modalEpisode">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Tao tap phim</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="form-episode">
+                                    <div class="form-group">
+                                        <label>Tên tập phim</label>
+                                        <input type="text" class="form-control" id="episodeName" name="name"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tập số bao nhiêu</label>
+                                        <input type="text" class="form-control" id="episodeDisplayOrder" name="displayOrder"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Trạng thái</label>
+                                        <select class="form-control" id="episodeStatus" name="status">
+                                            <option value="false">Ẩn</option>
+                                            <option value="true">Công khai</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Xác nhận</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
     </div>
 </div>
 
-<!-- Scripts -->
+&lt;!&ndash; Scripts &ndash;&gt;
 <script src="/admin-assets/plugins/jquery/jquery.min.js"></script>
 <script src="/admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/admin-assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
@@ -241,5 +350,1045 @@
     });
 </script>
 
+</body>
+</html>
+-->
+<!--
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AdminLTE 3 | Chi tiết phim</title>
+
+    &lt;!&ndash; Google Font: Source Sans Pro &ndash;&gt;
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    &lt;!&ndash; Font Awesome &ndash;&gt;
+    <link rel="stylesheet" href="/admin-assets/plugins/fontawesome-free/css/all.min.css" />
+    &lt;!&ndash; Ionicons &ndash;&gt;
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    &lt;!&ndash; Theme style &ndash;&gt;
+    <link rel="stylesheet" href="/admin-assets/dist/css/adminlte.min.css" />
+    &lt;!&ndash; overlayScrollbars &ndash;&gt;
+    <link rel="stylesheet" href="/admin-assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
+    &lt;!&ndash; Select2 &ndash;&gt;
+    <link rel="stylesheet" href="/admin-assets/plugins/select2/css/select2.min.css" />
+    &lt;!&ndash; EasyMDE &ndash;&gt;
+    <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css" />
+    &lt;!&ndash; Highlight.js &ndash;&gt;
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/latest/styles/github.min.css" />
+    &lt;!&ndash; Custom style &ndash;&gt;
+    <link rel="stylesheet" href="/admin-assets/dist/css/style.css" />
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    &lt;!&ndash; Navbar &ndash;&gt;
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link py-0 d-flex align-items-center" data-toggle="dropdown" href="#">
+                    <div class="user-panel d-flex align-items-center">
+                        <div class="image">
+                            <img src="/admin-assets/dist/img/user2-160x160.jpg" class="img-circle border" alt="User Image" />
+                        </div>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                    <a href="#" class="dropdown-item">
+                        <span class="text-muted">Trang chủ</span>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <span class="text-muted">Đăng xuất</span>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button"><i class="fas fa-expand-arrows-alt"></i></a>
+            </li>
+        </ul>
+    </nav>
+
+    &lt;!&ndash; Main Sidebar Container &ndash;&gt;
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <a href="/admin" class="brand-link">
+            <img src="/admin-assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
+            <span class="brand-text font-weight-light">Admin</span>
+        </a>
+        <div class="sidebar">
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                Quản lý phim
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/movies" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Tất cả phim</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/movies/create" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Tạo phim</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tree"></i>
+                            <p>
+                                Quản lý user
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="pages/UI/general.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh sách user</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/UI/icons.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Tạo user</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    &lt;!&ndash; Content Wrapper &ndash;&gt;
+    <div class="content-wrapper">
+        &lt;!&ndash; Content Header &ndash;&gt;
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-12">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="/admin/movies">Phim</a></li>
+                            <li class="breadcrumb-item active" th:text="${movie.name}"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        &lt;!&ndash; Main content &ndash;&gt;
+        <section class="content">
+            <div class="container-fluid">
+                &lt;!&ndash; Buttons &ndash;&gt;
+                <div class="row py-2">
+                    <div class="col-6">
+                        <a href="/admin/movies" class="btn btn-default">
+                            <i class="fas fa-chevron-left"></i> Quay lại
+                        </a>
+                        <a th:href="@{/admin/movies/edit/{id}(id=${movie.id})}" class="btn btn-info px-4">Chỉnh sửa</a>
+                        <a th:href="@{/movies/{id}(id=${movie.id})}" target="_blank" class="btn btn-primary px-4">Preview</a>
+                    </div>
+                    <div class="col-6 d-flex justify-content-end">
+                        <form th:action="@{/admin/movies/delete/{id}(id=${movie.id})}" method="post" style="display: inline;">
+                            <button type="submit" class="btn btn-danger px-4" onclick="return confirm('Bạn có chắc muốn xóa phim này?');">
+                                Xóa
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                &lt;!&ndash; Movie details and edit form &ndash;&gt;
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    &lt;!&ndash; Left Column &ndash;&gt;
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label>Tên phim</label>
+                                            <input type="text" class="form-control" id="name" th:value="${movie.name}" readonly />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Mô tả</label>
+                                            <textarea id="description" class="form-control" rows="7" th:text="${movie.description}" readonly></textarea>
+                                        </div>
+                                        <div class="form-group" th:if="${movie.trailer != null}">
+                                            <label>Trailer</label>
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe class="embed-responsive-item" th:src="${movie.trailer}" allowfullscreen></iframe>
+                                            </div>
+                                            &lt;!&ndash; Add upload button for trailer &ndash;&gt;
+                                            <label for="trailer-input" class="btn btn-info btn-flat mt-2">
+                                                Upload trailer mới
+                                            </label>
+                                            <input type="file" id="trailer-input" class="d-none" onchange="uploadTrailer(this)" />
+                                        </div>
+                                    </div>
+
+                                    &lt;!&ndash; Right Column &ndash;&gt;
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Trạng thái</label>
+                                            <select class="form-control" id="status" disabled>
+                                                <option th:selected="${movie.status}" value="true">Công khai</option>
+                                                <option th:selected="${!movie.status}" value="false">Nháp</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Loại phim</label>
+                                            <input type="text" class="form-control" id="type" th:value="${movie.type}" readonly />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Năm phát hành</label>
+                                            <input type="number" class="form-control" id="releaseYear" th:value="${movie.releaseYear}" readonly />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Quốc gia</label>
+                                            <input type="text" class="form-control" th:value="${movie.country != null ? movie.country.name : 'N/A'}" readonly />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Thể loại</label>
+                                            <div class="select2-purple">
+                                                <select class="select2 form-control" multiple id="genres" disabled>
+                                                    <option th:each="genre : ${movie.genres}" th:value="${genre.id}" th:text="${genre.name}" selected></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Diễn viên</label>
+                                            <div class="select2-purple">
+                                                <select class="select2 form-control" multiple id="actors" disabled>
+                                                    <option th:each="actor : ${movie.actors}" th:value="${actor.id}" th:text="${actor.name}" selected></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Đạo diễn</label>
+                                            <div class="select2-purple">
+                                                <select class="select2 form-control" multiple id="directors" disabled>
+                                                    <option th:each="director : ${movie.directors}" th:value="${director.id}" th:text="${director.name}" selected></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" th:if="${movie.thumbnail != null}">
+                                            <label>Thumbnail</label>
+                                            <div class="thumbnail-preview-container mb-3">
+                                                <img th:src="${movie.thumbnail}" alt="Thumbnail" id="thumbnail" class="img-fluid" />
+                                            </div>
+                                            <label for="thumbnail-input" class="btn btn-info btn-flat">
+                                                Upload hình ảnh
+                                            </label>
+                                            <input type="file" id="thumbnail-input" class="d-none" onchange="uploadThumbnail(this)" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                &lt;!&ndash; Episode list &ndash;&gt;
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-content-center mb-3">
+                                    <h4>Danh sách tập phim</h4>
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalEpisode">Tạo tập phim</button>
+                                </div>
+                                <table class="table table-bordered table-hover" id="table-episode">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Tên tập phim</th>
+                                        <th style="width: 50%">Link</th>
+                                        <th>Thời lượng</th>
+                                        <th>Trạng thái</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Tap 1</td>
+                                        <td class="videoUrl" style="word-break: break-all">
+                                            http://res.cloudinary.com/dchrybytt/image/upload/v1745930233/file_java_27_28/cwim3qrad2mokindunbn.png
+                                        </td>
+                                        <td class="duration">90</td>
+                                        <td>Cong khai</td>
+                                        <td>
+                                            <label class="btn btn-warning btn-sm mb-0" for="input-video-1">
+                                                <i class="fas fa-upload"></i>
+                                            </label>
+                                            <input type="file" id="input-video-1" class="d-none" onchange="uploadEpisodeVideo(this, 1)" />
+                                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalPreview" onclick="previewVideo(this)">
+                                                <i class="fas fa-play"></i>
+                                            </button>
+                                            <button class="btn btn-success btn-sm">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </button>
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                &lt;!&ndash; Preview Modal &ndash;&gt;
+                <div class="modal fade" id="modalPreview">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Video Preview</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <video width="100%" controls id="previewVideo">
+                                    <source src="" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                &lt;!&ndash; Create Episode Modal &ndash;&gt;
+                <div class="modal fade" id="modalEpisode">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Tạo tập phim</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="form-episode" th:action="@{/admin/movies/{id}/episodes(id=${movie.id})}" method="post">
+                                    <div class="form-group">
+                                        <label>Tên tập phim</label>
+                                        <input type="text" class="form-control" id="episodeName" name="name" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tập số bao nhiêu</label>
+                                        <input type="text" class="form-control" id="episodeDisplayOrder" name="displayOrder" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Trạng thái</label>
+                                        <select class="form-control" id="episodeStatus" name="status">
+                                            <option value="false">Ẩn</option>
+                                            <option value="true">Công khai</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Xác nhận</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+&lt;!&ndash; Scripts &ndash;&gt;
+<script src="/admin-assets/plugins/jquery/jquery.min.js"></script>
+<script src="/admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/admin-assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/admin-assets/dist/js/adminlte.js"></script>
+<script src="/admin-assets/plugins/select2/js/select2.full.min.js"></script>
+<script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+<script src="https://cdn.jsdelivr.net/highlight.js/latest/highlight.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Initialize Select2
+        $('.select2').select2();
+
+        // Initialize EasyMDE for description (if editable)
+        const easyMDE = new EasyMDE({
+            element: document.getElementById("description"),
+            spellChecker: false,
+            maxHeight: "500px",
+            renderingConfig: {
+                codeSyntaxHighlighting: true,
+            },
+        });
+
+        // Log selected values for debugging
+        function logSelect2Values() {
+            var genresNames = $('#genres').select2('data').map(item => item.text);
+            console.log("Genres: ", genresNames);
+
+            var actorsNames = $('#actors').select2('data').map(item => item.text);
+            console.log("Actors: ", actorsNames);
+
+            var directorsNames = $('#directors').select2('data').map(item => item.text);
+            console.log("Directors: ", directorsNames);
+        }
+        logSelect2Values();
+    });
+
+    // Preview video in modal
+    function previewVideo(button) {
+        const row = $(button).closest('tr');
+        const videoUrl = row.find('.videoUrl').text().trim();
+        const videoElement = document.querySelector('#previewVideo source');
+        videoElement.setAttribute('src', videoUrl);
+        document.getElementById('previewVideo').load();
+    }
+
+    // Upload trailer
+    function uploadTrailer(input) {
+        const movieId = [[${movie.id}]];
+        const file = input.files[0];
+        if (file) {
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fetch(`/api/movies/${movieId}/upload-video`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const trailerIframe = document.querySelector('.embed-responsive-item');
+                trailerIframe.src = data.url;
+                alert('Trailer uploaded successfully!');
+            })
+            .catch(error => {
+                console.error('Error uploading trailer:', error);
+                alert('Failed to upload trailer.');
+            });
+        }
+    }
+
+    // Upload episode video
+    function uploadEpisodeVideo(input, episodeId) {
+        const movieId = [[${movie.id}]];
+        const file = input.files[0];
+        if (file) {
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fetch(`/api/movies/${movieId}/episodes/${episodeId}/upload-video`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const row = $(input).closest('tr');
+                row.find('.videoUrl').text(data.url);
+                alert('Episode video uploaded successfully!');
+            })
+            .catch(error => {
+                console.error('Error uploading episode video:', error);
+                alert('Failed to upload episode video.');
+            });
+        }
+    }
+
+    // Upload thumbnail
+    function uploadThumbnail(input) {
+        const movieId = [[${movie.id}]];
+        const file = input.files[0];
+        if (file) {
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fetch(`/api/movies/${movieId}/upload-thumbnail`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('thumbnail').src = data.url;
+                alert('Thumbnail uploaded successfully!');
+            })
+            .catch(error => {
+                console.error('Error uploading thumbnail:', error);
+                alert('Failed to upload thumbnail.');
+            });
+        }
+    }
+</script>
+</body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AdminLTE 3 | Chi tiết phim</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/admin-assets/plugins/fontawesome-free/css/all.min.css" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/admin-assets/dist/css/adminlte.min.css" />
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="/admin-assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/admin-assets/plugins/select2/css/select2.min.css" />
+    <!-- EasyMDE -->
+    <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css" />
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/latest/styles/github.min.css" />
+    <!-- Custom style -->
+    <link rel="stylesheet" href="/admin-assets/dist/css/style.css" />
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link py-0 d-flex align-items-center" data-toggle="dropdown" href="#">
+                    <div class="user-panel d-flex align-items-center">
+                        <div class="image">
+                            <img src="/admin-assets/dist/img/user2-160x160.jpg" class="img-circle border" alt="User Image" />
+                        </div>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                    <a href="#" class="dropdown-item">
+                        <span class="text-muted">Trang chủ</span>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <span class="text-muted">Đăng xuất</span>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button"><i class="fas fa-expand-arrows-alt"></i></a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <a href="/admin" class="brand-link">
+            <img src="/admin-assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
+            <span class="brand-text font-weight-light">Admin</span>
+        </a>
+        <div class="sidebar">
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                Quản lý phim
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/movies" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Tất cả phim</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/movies/create" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Tạo phim</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tree"></i>
+                            <p>
+                                Quản lý user
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="pages/UI/general.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh sách user</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/UI/icons.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Tạo user</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        <!-- Content Header -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-12">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="/admin/movies">Phim</a></li>
+                            <li class="breadcrumb-item active" th:text="${movie.name}"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Buttons -->
+                <div class="row py-2">
+                    <div class="col-6">
+                        <a href="/admin/movies" class="btn btn-default">
+                            <i class="fas fa-chevron-left"></i> Quay lại
+                        </a>
+                        <a th:href="@{/admin/movies/edit/{id}(id=${movie.id})}" class="btn btn-info px-4">Chỉnh sửa</a>
+                        <a th:href="@{/movies/{id}(id=${movie.id})}" target="_blank" class="btn btn-primary px-4">Preview</a>
+                    </div>
+                    <div class="col-6 d-flex justify-content-end">
+                        <form th:action="@{/admin/movies/delete/{id}(id=${movie.id})}" method="post" style="display: inline;">
+                            <button type="submit" class="btn btn-danger px-4" onclick="return confirm('Bạn có chắc muốn xóa phim này?');">
+                                Xóa
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Movie details and edit form -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <!-- Left Column -->
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label>Tên phim</label>
+                                            <input type="text" class="form-control" id="name" th:value="${movie.name}" readonly />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Mô tả</label>
+                                            <textarea id="description" class="form-control" rows="7" th:text="${movie.description}" readonly></textarea>
+                                        </div>
+                                        <div class="form-group" th:if="${movie.trailer != null}">
+                                            <label>Trailer</label>
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe class="embed-responsive-item" th:src="${movie.trailer}" allowfullscreen></iframe>
+                                            </div>
+                                            <!-- Add upload button for trailer -->
+                                            <label for="trailer-input" class="btn btn-info btn-flat mt-2">
+                                                Upload trailer mới
+                                            </label>
+                                            <input type="file" id="trailer-input" class="d-none" accept="video/*" onchange="uploadTrailer(this)" />
+                                        </div>
+                                    </div>
+
+                                    <!-- Right Column -->
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Trạng thái</label>
+                                            <select class="form-control" id="status" disabled>
+                                                <option th:selected="${movie.status}" value="true">Công khai</option>
+                                                <option th:selected="${!movie.status}" value="false">Nháp</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Loại phim</label>
+                                            <input type="text" class="form-control" id="type" th:value="${movie.type}" readonly />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Năm phát hành</label>
+                                            <input type="number" class="form-control" id="releaseYear" th:value="${movie.releaseYear}" readonly />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Quốc gia</label>
+                                            <input type="text" class="form-control" th:value="${movie.country != null ? movie.country.name : 'N/A'}" readonly />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Thể loại</label>
+                                            <div class="select2-purple">
+                                                <select class="select2 form-control" multiple id="genres" disabled>
+                                                    <option th:each="genre : ${movie.genres}" th:value="${genre.id}" th:text="${genre.name}" selected></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Diễn viên</label>
+                                            <div class="select2-purple">
+                                                <select class="select2 form-control" multiple id="actors" disabled>
+                                                    <option th:each="actor : ${movie.actors}" th:value="${actor.id}" th:text="${actor.name}" selected></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Đạo diễn</label>
+                                            <div class="select2-purple">
+                                                <select class="select2 form-control" multiple id="directors" disabled>
+                                                    <option th:each="director : ${movie.directors}" th:value="${director.id}" th:text="${director.name}" selected></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Thumbnail</label>
+                                            <div class="thumbnail-preview-container mb-3">
+                                                <img th:src="${movie.thumbnail != null ? movie.thumbnail : '/admin-assets/dist/img/default-thumbnail.png'}" alt="Thumbnail" id="thumbnail" class="img-fluid" />
+                                            </div>
+                                            <label for="thumbnail-input" class="btn btn-info btn-flat">
+                                                Upload hình ảnh
+                                            </label>
+                                            <input type="file" id="thumbnail-input" class="d-none" accept="image/*" onchange="uploadThumbnail(this)" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Episode list -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-content-center mb-3">
+                                    <h4>Danh sách tập phim</h4>
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalEpisode">Tạo tập phim</button>
+                                </div>
+                                <table class="table table-bordered table-hover" id="table-episode">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Tên tập phim</th>
+                                        <th style="width: 50%">Link</th>
+                                        <th>Thời lượng</th>
+                                        <th>Trạng thái</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Tập 1</td>
+                                        <td class="videoUrl" style="word-break: break-all">
+                                            http://res.cloudinary.com/dchrybytt/image/upload/v1745930233/file_java_27_28/cwim3qrad2mokindunbn.png
+                                        </td>
+                                        <td class="duration">90</td>
+                                        <td>Công khai</td>
+                                        <td>
+                                            <label class="btn btn-warning btn-sm mb-0" for="input-video-1">
+                                                <i class="fas fa-upload"></i>
+                                            </label>
+                                            <input type="file" id="input-video-1" class="d-none" accept="video/*" onchange="uploadEpisodeVideo(this, 1)" />
+                                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalPreview" onclick="previewVideo(this)">
+                                                <i class="fas fa-play"></i>
+                                            </button>
+                                            <button class="btn btn-success btn-sm">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </button>
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preview Modal -->
+                <div class="modal fade" id="modalPreview">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Video Preview</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <video width="100%" controls id="previewVideo">
+                                    <source src="" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Create Episode Modal -->
+                <div class="modal fade" id="modalEpisode">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Tạo tập phim</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="form-episode" th:action="@{/admin/movies/{id}/episodes(id=${movie.id})}" method="post">
+                                    <div class="form-group">
+                                        <label>Tên tập phim</label>
+                                        <input type="text" class="form-control" id="episodeName" name="name" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tập số bao nhiêu</label>
+                                        <input type="text" class="form-control" id="episodeDisplayOrder" name="displayOrder" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Trạng thái</label>
+                                        <select class="form-control" id="episodeStatus" name="status">
+                                            <option value="false">Ẩn</option>
+                                            <option value="true">Công khai</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Xác nhận</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="/admin-assets/plugins/jquery/jquery.min.js"></script>
+<script src="/admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/admin-assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/admin-assets/dist/js/adminlte.js"></script>
+<script src="/admin-assets/plugins/select2/js/select2.full.min.js"></script>
+<script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+<script src="https://cdn.jsdelivr.net/highlight.js/latest/highlight.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Initialize Select2
+        $('.select2').select2();
+
+        // Initialize EasyMDE for description (if editable)
+        const easyMDE = new EasyMDE({
+            element: document.getElementById("description"),
+            spellChecker: false,
+            maxHeight: "500px",
+            renderingConfig: {
+                codeSyntaxHighlighting: true,
+            },
+        });
+
+        // Log selected values for debugging
+        function logSelect2Values() {
+            var genresNames = $('#genres').select2('data').map(item => item.text);
+            console.log("Genres: ", genresNames);
+
+            var actorsNames = $('#actors').select2('data').map(item => item.text);
+            console.log("Actors: ", actorsNames);
+
+            var directorsNames = $('#directors').select2('data').map(item => item.text);
+            console.log("Directors: ", directorsNames);
+        }
+        logSelect2Values();
+    });
+
+    // Preview video in modal
+    function previewVideo(button) {
+        const row = $(button).closest('tr');
+        const videoUrl = row.find('.videoUrl').text().trim();
+        const videoElement = document.querySelector('#previewVideo source');
+        videoElement.setAttribute('src', videoUrl);
+        document.getElementById('previewVideo').load();
+    }
+
+    // Upload trailer
+    function uploadTrailer(input) {
+        const movieId = [[${movie.id}]];
+        const file = input.files[0];
+        if (!file) {
+            alert('Vui lòng chọn một file video!');
+            return;
+        }
+        if (!file.type.startsWith('video/')) {
+            alert('File được chọn phải là một video!');
+            input.value = '';
+            return;
+        }
+        const formData = new FormData();
+        formData.append('file', file);
+
+        fetch(`/api/movies/${movieId}/upload-video`, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Lỗi khi upload video: ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.url) {
+                const trailerIframe = document.querySelector('.embed-responsive-item');
+                trailerIframe.src = data.url;
+                alert('Trailer đã được upload thành công!');
+            } else {
+                throw new Error('Không nhận được URL video từ server!');
+            }
+        })
+        .catch(error => {
+            console.error('Lỗi khi upload trailer:', error);
+            alert('Không thể upload trailer: ' + error.message);
+        })
+        .finally(() => {
+            input.value = '';
+        });
+    }
+
+    // Upload episode video
+    function uploadEpisodeVideo(input, episodeId) {
+        const movieId = [[${movie.id}]];
+        const file = input.files[0];
+        if (!file) {
+            alert('Vui lòng chọn một file video!');
+            return;
+        }
+        if (!file.type.startsWith('video/')) {
+            alert('File được chọn phải là một video!');
+            input.value = '';
+            return;
+        }
+        const formData = new FormData();
+        formData.append('file', file);
+
+        fetch(`/api/movies/${movieId}/episodes/${episodeId}/upload-video`, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Lỗi khi upload video: ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.url) {
+                const row = $(input).closest('tr');
+                row.find('.videoUrl').text(data.url);
+                alert('Video tập phim đã được upload thành công!');
+            } else {
+                throw new Error('Không nhận được URL video từ server!');
+            }
+        })
+        .catch(error => {
+            console.error('Lỗi khi upload episode video:', error);
+            alert('Không thể upload video tập phim: ' + error.message);
+        })
+        .finally(() => {
+            input.value = '';
+        });
+    }
+
+    // Upload thumbnail
+    function uploadThumbnail(input) {
+    const movieId = [[${movie.id}]];
+    const file = input.files[0];
+
+    if (!file) {
+        alert('Vui lòng chọn một file ảnh!');
+        return;
+    }
+    if (!file.type.startsWith('image/')) {
+        alert('File được chọn phải là một hình ảnh!');
+        input.value = '';
+        return;
+    }
+    const maxSizeInMB = 5;
+    const maxSizeInBytes = maxSizeInMB * 1024 * 1024;
+    if (file.size > maxSizeInBytes) {
+        alert(`Kích thước file không được vượt quá ${maxSizeInMB}MB!`);
+        input.value = '';
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    fetch(`/api/admin/movies/${movieId}/upload-thumbnail`, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(err => {
+                throw new Error(err.message || `Lỗi server: ${response.status}`);
+            });
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.url) {
+            document.getElementById('thumbnail').src = data.url;
+            alert('Thumbnail đã được upload thành công!');
+        } else {
+            throw new Error('Không nhận được URL ảnh từ server!');
+        }
+    })
+    .catch(error => {
+        console.error('Lỗi khi upload thumbnail:', error);
+        alert(`Không thể upload thumbnail: ${error.message}`);
+    })
+    .finally(() => {
+        input.value = '';
+    });
+}
+</script>
 </body>
 </html>

@@ -2,6 +2,8 @@ package com.example.movieapp.service;
 
 import com.example.movieapp.entity.Episode;
 import com.example.movieapp.entity.Movie;
+import com.example.movieapp.exception.BadRequestException;
+import com.example.movieapp.exception.NotFoundException;
 import com.example.movieapp.model.request.EpisodeRequest;
 import com.example.movieapp.repository.EpisodeRepository;
 import com.example.movieapp.repository.MovieRepository;
@@ -12,15 +14,18 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
 public class EpisodeService {
     private final EpisodeRepository episodeRepository;
     private final MovieRepository movieRepository;
+    private final CloudinaryService cloudinaryService;
 
     // câu 1 lấy tập phim
 
@@ -79,6 +84,22 @@ public class EpisodeService {
                 .orElseThrow(() -> new RuntimeException("Không tìm thấy tập phim với ID: " + id));
 
         episodeRepository.delete(episode);
+    }
+
+
+    public Map uploadVideo(Integer id, MultipartFile file) {
+        Movie movie = movieRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Không tìm thấy phim với id " + id));
+        try {
+            Map map = cloudinaryService.uploadFile(file, "file_video_27_28");
+            String url = map.get("url").toString();
+            movie.setTrailer(url); // Assuming Movie class has setVideo method
+            movie.setUpdatedAt(LocalDateTime.now());
+            movieRepository.save(movie);
+            return Map.of("url", url);
+        } catch (Exception e) {
+            throw new BadRequestException(e.getMessage());
+        }
     }
 
 

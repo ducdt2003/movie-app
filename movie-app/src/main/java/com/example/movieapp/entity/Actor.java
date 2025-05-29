@@ -33,4 +33,5 @@ public class Actor {
 
     LocalDateTime createdAt;
     LocalDateTime updatedAt;
+
 }

@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.data.domain.Page;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/admin/movies")
@@ -51,6 +52,11 @@ public class AdminApi {
         return ResponseEntity.ok("Xóa phim thành công với ID: " + id);
     }
 
+
+    @PostMapping("/{id}/upload-thumbnail")
+    ResponseEntity<?> uploadThumbnail(@RequestParam MultipartFile file, @PathVariable Integer id) {
+        return ResponseEntity.ok(movieService.uploadThumbnail(id, file));
+    }
 
 
 }
